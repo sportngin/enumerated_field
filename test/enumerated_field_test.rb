@@ -4,7 +4,7 @@ class Apple
   include EnumeratedField
 
   attr_accessor :color, :kind
-  
+
   enum_field :color, [['Red', :red], ['Green', :green]]
   enum_field :kind, [['Fuji Apple', :fuji], ['Delicious Red Apple', :delicious]]
 
@@ -12,43 +12,62 @@ class Apple
     self.color = color
     self.kind = kind
   end
-  
+
 end
 
 class EnumeratedFieldTest < Test::Unit::TestCase
 
-  def test_color_display
-    apple = Apple.new(:red, :fuji)
-    assert_equal apple.color_display, 'Red'
+  context 'EnumeratedField class' do
+
+    should 'have the color_values method' do
+      assert_equal Apple.color_values.length, 2
+    end
+
+    should 'have 2 values without first option' do
+      assert_equal Apple.color_values.length, 2
+    end
+
+    should 'have 3 values with first option' do
+      assert_equal Apple.color_values(:first_option => "Select Color").length, 3
+    end
+
   end
 
-  def test_color_display_for
-    apple = Apple.new(:red, :fuji)
-    assert_equal apple.color_display_for(:green), 'Green'    
-  end
+  context 'EnumeratedField instance' do
 
-  def test_two_enum_fields_in_one_class
-    apple = Apple.new(:green, :delicious)
-    assert_equal apple.color_display, 'Green'
-    assert_equal apple.kind_display, 'Delicious Red Apple'
-  end
+    setup do
+      @red_apple = Apple.new(:red, :fuji)
+      @green_apple = Apple.new(:green, :delicious)
+    end
 
-  def test_question_methods
-    apple = Apple.new(:green, :delicious)
-    assert apple.color_green?
-    assert !apple.color_red?
-    assert apple.kind_delicious?
-    assert !apple.kind_fuji?
-  end
+    should 'have color_display method' do
+      assert_equal @red_apple.color_display, 'Red'
+    end
 
-  def test_values_without_first_option
-    apple = Apple.new(:red, :fuji)
-    assert_equal apple.color_values.length, 2
-  end
+    should 'show Green for color_display of green' do
+      assert_equal @red_apple.color_display_for(:green), 'Green'
+    end
 
-  def test_values_with_first_option
-    apple = Apple.new(:red, :fuji)
-    assert_equal apple.color_values(:first_option => "Select Color").length, 3
+    should 'have two enum fields in one class' do
+      assert_equal @green_apple.color_display, 'Green'
+      assert_equal @green_apple.kind_display, 'Delicious Red Apple'
+    end
+
+    should 'have valid question methods' do
+      assert @green_apple.color_green?
+      assert !@green_apple.color_red?
+      assert @green_apple.kind_delicious?
+      assert !@green_apple.kind_fuji?
+    end
+
+    should 'have 2 values without first option' do
+      assert_equal @red_apple.color_values.length, 2
+    end
+
+    should 'have 3 values with first option' do
+      assert_equal @red_apple.color_values(:first_option => "Select Color").length, 3
+    end
+
   end
 
 end

@@ -12,11 +12,11 @@ module EnumeratedField
     def enum_field(field_name, values_array)
       values_hash = {}
       values_array.each { |value, key| values_hash[key] = value }
-      
-      class_eval do
 
-        # returns the values_array for this field, useful for providing to 
-        # options_for_select when constructing forms
+      # returns the values_array for this field, useful for providing to
+      # options_for_select when constructing forms
+      enumerated_class = class << self; self; end
+      enumerated_class.instance_eval do
         define_method("#{field_name}_values") do |*options|
           options = options.first || {}
           if options[:first_option]
@@ -24,6 +24,13 @@ module EnumeratedField
           else
             values_array
           end
+        end
+      end
+
+      class_eval do
+
+        define_method("#{field_name}_values") do |*options|
+          self.class.send("#{field_name}_values", *options)
         end
 
         # returns display value for the current value of the field
@@ -35,7 +42,7 @@ module EnumeratedField
         define_method("#{field_name}_display_for") do |key|
           values_hash[key]
         end
-        
+
         define_method("#{field_name}_value_for") do |key|
           values_hash.invert[key]
         end
@@ -51,6 +58,6 @@ module EnumeratedField
     end
 
   end
-  
+
 end
 
