@@ -36,7 +36,11 @@ module EnumeratedField
       class_eval do
 
         unless options[:validate] == false
-          validates field_name, :inclusion => values_hash.keys,
+          valid_values = values_hash.keys
+          valid_values += values_hash.keys.map do |key|
+            key.is_a?(String) ? key.to_sym : key.to_s
+          end
+          validates field_name, :inclusion => valid_values,
             :allow_nil => options[:allow_nil], :allow_blank => options[:allow_blank]
         end
 

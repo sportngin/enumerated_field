@@ -5,7 +5,7 @@ class Apple
 
   attr_accessor :color, :kind
   
-  enum_field :color, [['Red', :red], ['Green', :green]], :validate => false
+  enum_field :color, [['Red', :red], ['Green', 'green']]
   enum_field :kind, [['Fuji Apple', :fuji], ['Delicious Red Apple', :delicious]], :validate => false
 
   def initialize(color, kind)
@@ -126,6 +126,11 @@ class EnumeratedFieldTest < Test::Unit::TestCase
       # no validations, accepts any choice
       apple = Apple.new(:orange, :macintosh)
       assert !apple.respond_to?(:valid)
+    end
+
+    should 'accept valid string equivalent to symbol in list' do
+      banana = Banana.new('chiquita', :green)
+      assert banana.valid?, banana.errors[:brand][0]
     end
   end
 end
