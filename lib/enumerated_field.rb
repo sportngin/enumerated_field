@@ -34,6 +34,12 @@ module EnumeratedField
             values_array
           end
         end
+
+        define_method("#{field_name}_for_json") do
+          values_array.map do |value, key|
+            {:display => value, :value => key}
+          end
+        end
       end
 
       class_eval do

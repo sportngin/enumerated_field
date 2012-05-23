@@ -27,6 +27,15 @@ class EnumeratedFieldTest < Test::Unit::TestCase
       assert_equal "hate-hate", Banana::TASTINESS_HATE_HATE
     end
 
+    should 'have the color_for_json method' do
+      assert_equal Apple.color_for_json.length, 2
+    end
+
+    should 'show Red for first element display and equal red for value' do
+      assert_equal Apple.color_for_json[0][:display], 'Red'
+      assert_equal Apple.color_for_json[0][:value], :red
+    end
+
   end
 
   context 'EnumeratedField instance' do
