@@ -92,6 +92,12 @@ These scopes are only created when your object is an ActiveRecord model.
     # performs Hike.where(:duration => Hike::DURATION_LONG)
     > Hike.duration_long
 
+    # performs Hike.where(Hike.arel_table[:trail].not_eq(Hike::TRAIL_CDT))
+    > Hike.trail_not_cdt
+
+    # performs Hike.where(Hike.arel_table[:duration].not_eq(Hike::DURATION_LONG))
+    > Hike.duration_not_long
+
 ### Use Constants for Keys
 
     > Hike::TRAIL_PCT

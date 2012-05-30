@@ -90,6 +90,7 @@ module EnumeratedField
         if defined? ActiveRecord::Base and ancestors.include? ActiveRecord::Base
           values_hash.keys.each do |key|
             scope "#{field_name}_#{key}", where(field_name => key)
+            scope "#{field_name}_not_#{key}", where(arel_table[field_name].not_eq(key))
           end
         end
 

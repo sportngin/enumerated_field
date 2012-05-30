@@ -124,6 +124,7 @@ class EnumeratedFieldTest < Test::Unit::TestCase
         ['color', 'kind'].each do |column|
           subject.send("#{column}_values").each do |a,b|
             assert subject.respond_to? "#{column}_#{b}"
+            assert subject.respond_to? "#{column}_not_#{b}"
             assert subject.send("#{column}_#{b}").any?
             assert_equal 2, subject.send("#{column}_#{b}").size
           end
