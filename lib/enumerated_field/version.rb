@@ -1,3 +1,3 @@
 module EnumeratedField
-  VERSION = "0.3.8"
+  VERSION = "1.0"
 end
