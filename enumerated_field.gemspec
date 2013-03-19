@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = AUTHORS.keys
   s.email       = AUTHORS.values
-  s.homepage    = "https://github.com/tstmedia/enumerated_field"
+  s.homepage    = "https://github.com/sportngin/enumerated_field"
   s.summary     = %q{EnumeratedField is a library that provides some nice methods when a string column is used like an enumeration.}
   s.description = %q{EnumeratedField is a library that provides some nice methods when a string column is used like an enumeration, meaning there is a list of allowable values for the string column.}
 
