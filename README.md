@@ -1,4 +1,5 @@
-[![TravisCI](https://secure.travis-ci.org/tstmedia/enumerated_field.png "TravisCI")](http://travis-ci.org/tstmedia/enumerated_field "Travis-CI EnumeratedField")
+[![TravisCI](https://secure.travis-ci.org/sportngin/enumerated_field.png "TravisCI")](http://travis-ci.org/sportngin/enumerated_field "Travis-CI EnumeratedField")
+[![Code Climate](https://codeclimate.com/github/sportngin/enumerated_field.png)](https://codeclimate.com/github/sportngin/enumerated_field)
 
 EnumeratedField is a library that provides some nice methods when a
 string column is used like an enumeration, meaning there is a list of
