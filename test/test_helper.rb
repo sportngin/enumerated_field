@@ -46,4 +46,4 @@ class Banana
   end
 end
 
-Fixtures.create_fixtures 'test/fixtures', :apples
+ActiveRecord::FixtureSet.create_fixtures 'test/fixtures', :apples

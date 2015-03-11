@@ -81,7 +81,7 @@ module EnumeratedField
         end
 
         # defines question methods for each possible value of the field
-        # ex.  object.league_nfl?  which returns true if the objects league 
+        # ex.  object.league_nfl?  which returns true if the objects league
         # field is currently set to nfl otherwise false
         values_hash.keys.each do |key|
           define_method("#{field_name}_#{key}?") { send(field_name).to_s == key.to_s }
@@ -89,8 +89,8 @@ module EnumeratedField
 
         if defined? ActiveRecord::Base and ancestors.include? ActiveRecord::Base
           values_hash.keys.each do |key|
-            scope "#{field_name}_#{key}", where(field_name => key)
-            scope "#{field_name}_not_#{key}", where("#{quoted_table_name}.#{connection.quote_column_name(field_name)} != ?", key)
+            scope "#{field_name}_#{key}", ->() { where(field_name => key) }
+            scope "#{field_name}_not_#{key}", ->() { where("#{quoted_table_name}.#{connection.quote_column_name(field_name)} != ?", key) }
           end
         end
 
