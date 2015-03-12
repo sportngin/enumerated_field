@@ -1,0 +1,14 @@
+defaults:
+  deploy_cmds:
+    - gem build enumerated_field.gemspec
+    - gem push *.gem
+  before_deploy_cmds:
+    - /usr/local/bin/op tag-release
+    - sed -i '' -e "s/\".*/\"$(git tag | tail -1 | sed s/v//)\"/" lib/enumerated_field/version.rb
+    - git add  lib/enumerated_field/version.rb
+    - git commit -m "Version Bump" && git push
+  after_deploy_cmds:
+    - rm *.gem
+environments:
+  -
+    rubygems: {}

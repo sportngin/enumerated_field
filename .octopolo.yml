@@ -1,0 +1,4 @@
+github_repo: sportngin/enumerated_field
+semantic_versioning: true
+branches_to_keep:
+  - master
