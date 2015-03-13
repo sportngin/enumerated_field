@@ -82,7 +82,7 @@ these.
     => [['Pacific Crest Trail', 'pct'], ['Continental Divide Trail', 'cdt'], ['Superior Hiking Trail', 'sht']]
     > Hike.trail_values # or get it from the class instead of the instance, if you like
     => [['Pacific Crest Trail', 'pct'], ['Continental Divide Trail', 'cdt'], ['Superior Hiking Trail', 'sht']]
-    > Hike.trail_values_for_json # or get a has for injecting into JSON or wherever
+    > Hike.trail_values_for_json # or get a hash for injecting into JSON or wherever
     => [{:display => 'Pacific Crest Trail', :value => 'pct'}, {:display => 'Continental Divide Trail', :value => 'cdt'}, {:display => 'Superior Hiking Trail', :value => 'sht'}]
 
 ### ActiveRecord Scopes
