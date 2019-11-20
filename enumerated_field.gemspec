@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake'
   s.add_development_dependency 'bundler'
   s.add_development_dependency 'turn'
-  s.add_development_dependency 'shoulda', '~> 2'
+  s.add_development_dependency 'shoulda'
   s.add_development_dependency 'activerecord', '~> 4.0.0'
-  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'sqlite3', '~> 1.3.9'
 end
