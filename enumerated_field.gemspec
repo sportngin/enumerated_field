@@ -28,14 +28,14 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_dependency 'activemodel', ['> 3.0.0', '< 5.0.0']
-  s.add_dependency 'activesupport', ['> 3.0.0', '< 5.0.0']
+  s.add_dependency 'activemodel', ['> 3.0.0', '< 6.0.0']
+  s.add_dependency 'activesupport', ['> 3.0.0', '< 6.0.0']
   s.add_development_dependency 'test-unit'
   s.add_development_dependency 'minitest', "~> 4.0"
   s.add_development_dependency 'rake'
   s.add_development_dependency 'bundler'
   s.add_development_dependency 'turn'
-  s.add_development_dependency 'shoulda', '~> 2'
+  s.add_development_dependency 'shoulda'
   s.add_development_dependency 'activerecord', '~> 4.0.0'
-  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'sqlite3', '~> 1.3.9'
 end
