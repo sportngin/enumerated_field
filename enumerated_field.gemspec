@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{EnumeratedField is a library that provides some nice methods when a string column is used like an enumeration.}
   s.description = %q{EnumeratedField is a library that provides some nice methods when a string column is used like an enumeration, meaning there is a list of allowable values for the string column.}
 
-  s.required_ruby_version = '>= 1.9.3'
+  s.required_ruby_version = '>= 1.9.4'
 
   s.rubyforge_project = "enumerated_field"
 
@@ -28,8 +28,8 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_dependency 'activemodel', ['> 3.0.0', '< 6.1.0']
-  s.add_dependency 'activesupport', ['> 3.0.0', '< 6.1.0']
+  s.add_dependency 'activemodel', ['> 3.0.0']
+  s.add_dependency 'activesupport', ['> 3.0.0']
   s.add_development_dependency 'test-unit'
   s.add_development_dependency 'minitest', "~> 4.0"
   s.add_development_dependency 'rake'
