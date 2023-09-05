@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{EnumeratedField is a library that provides some nice methods when a string column is used like an enumeration.}
   s.description = %q{EnumeratedField is a library that provides some nice methods when a string column is used like an enumeration, meaning there is a list of allowable values for the string column.}
 
-  s.required_ruby_version = '>= 1.9.4'
+  s.required_ruby_version = '>= 1.9.3'
 
   s.rubyforge_project = "enumerated_field"
 
